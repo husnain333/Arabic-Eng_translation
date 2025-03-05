@@ -656,35 +656,35 @@ else:
 
 st.markdown('</div>', unsafe_allow_html=True)  # Close the card
 
-# About section (replacing sidebar content)
-st.markdown("""
-<div class="about-section">
-    <div class="about-title">About This Translator</div>
-    <div class="about-content">
-        <p>This translator uses a neural machine translation model based on the Transformer architecture. 
-        It processes Arabic text and generates fluent English translations by understanding the context and meaning.</p>
+# # About section (replacing sidebar content)
+# st.markdown("""
+# <div class="about-section">
+#     <div class="about-title">About This Translator</div>
+#     <div class="about-content">
+#         <p>This translator uses a neural machine translation model based on the Transformer architecture. 
+#         It processes Arabic text and generates fluent English translations by understanding the context and meaning.</p>
         
-        <div class="model-info">
-            <div class="model-info-card">
-                <div class="model-info-title">Architecture</div>
-                <div class="model-info-value">Transformer</div>
-            </div>
-            <div class="model-info-card">
-                <div class="model-info-title">Encoder/Decoder Layers</div>
-                <div class="model-info-value">4</div>
-            </div>
-            <div class="model-info-card">
-                <div class="model-info-title">Attention Heads</div>
-                <div class="model-info-value">8</div>
-            </div>
-            <div class="model-info-card">
-                <div class="model-info-title">Model Dimension</div>
-                <div class="model-info-value">512</div>
-            </div>
-        </div>
-    </div>
-</div>
-""", unsafe_allow_html=True)
+#         <div class="model-info">
+#             <div class="model-info-card">
+#                 <div class="model-info-title">Architecture</div>
+#                 <div class="model-info-value">Transformer</div>
+#             </div>
+#             <div class="model-info-card">
+#                 <div class="model-info-title">Encoder/Decoder Layers</div>
+#                 <div class="model-info-value">4</div>
+#             </div>
+#             <div class="model-info-card">
+#                 <div class="model-info-title">Attention Heads</div>
+#                 <div class="model-info-value">8</div>
+#             </div>
+#             <div class="model-info-card">
+#                 <div class="model-info-title">Model Dimension</div>
+#                 <div class="model-info-value">512</div>
+#             </div>
+#         </div>
+#     </div>
+# </div>
+# """, unsafe_allow_html=True)
 
 # Features section
 st.markdown("""
