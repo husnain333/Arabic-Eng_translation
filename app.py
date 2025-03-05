@@ -27,7 +27,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Modern UI styling with improved color contrast
+# Modern UI styling with a professional color scheme
 st.markdown("""
 <style>
     /* Global styles */
@@ -49,7 +49,7 @@ st.markdown("""
         text-align: center;
         margin-bottom: 2rem;
         padding-bottom: 1rem;
-        border-bottom: 1px solid #e5e7eb;
+        border-bottom: 1px solid #f0f0f0;
     }
     
     .header h1 {
@@ -60,7 +60,7 @@ st.markdown("""
     }
     
     .header p {
-        color: #4b5563;
+        color: #6b7280;
         font-size: 1.1rem;
         max-width: 600px;
         margin: 0 auto;
@@ -146,7 +146,7 @@ st.markdown("""
     
     .source-lang {
         background-color: #f3f4f6;
-        color: #111827;
+        color: #374151;
     }
     
     .target-lang {
@@ -185,9 +185,9 @@ st.markdown("""
     }
     
     .input-header {
-        background-color: #f3f4f6;
-        color: #111827;
-        border: 1px solid #d1d5db;
+        background-color: #f9fafb;
+        color: #374151;
+        border: 1px solid #e5e7eb;
         border-bottom: none;
     }
     
@@ -222,8 +222,8 @@ st.markdown("""
     
     .secondary-button {
         background-color: #f3f4f6;
-        color: #111827;
-        border: 1px solid #d1d5db;
+        color: #374151;
+        border: 1px solid #e5e7eb;
         padding: 10px 20px;
         border-radius: 6px;
         font-weight: 500;
@@ -310,7 +310,7 @@ st.markdown("""
     }
     
     .feature-description {
-        color: #4b5563;
+        color: #6b7280;
         font-size: 0.95rem;
     }
     
@@ -318,15 +318,14 @@ st.markdown("""
     .footer {
         margin-top: 40px;
         padding: 24px;
-        background-color: #1a56db;
+        background-color: #f9fafb;
         border-radius: 12px;
         text-align: center;
-        color: white;
     }
     
     .footer-title {
         font-weight: 600;
-        color: white;
+        color: #111827;
         margin-bottom: 16px;
     }
     
@@ -347,11 +346,10 @@ st.markdown("""
     .contributor-name {
         font-weight: 500;
         margin-bottom: 4px;
-        color: white;
     }
     
     .contributor-link {
-        color: #e0e7ff;
+        color: #1a56db;
         text-decoration: none;
         font-size: 0.9rem;
     }
@@ -361,7 +359,7 @@ st.markdown("""
     }
     
     .copyright {
-        color: rgba(255, 255, 255, 0.8);
+        color: #6b7280;
         font-size: 0.9rem;
         margin-top: 16px;
     }
@@ -388,13 +386,13 @@ st.markdown("""
     
     .sidebar-subtitle {
         font-weight: 500;
-        color: #111827;
+        color: #374151;
         margin-bottom: 8px;
         font-size: 0.95rem;
     }
     
     .sidebar-text {
-        color: #4b5563;
+        color: #6b7280;
         font-size: 0.9rem;
         line-height: 1.5;
     }
@@ -419,7 +417,7 @@ st.markdown("""
     }
     
     .spec-label {
-        color: #4b5563;
+        color: #6b7280;
         font-size: 0.85rem;
     }
     
@@ -440,7 +438,7 @@ st.markdown("""
     
     .loading-text {
         margin-top: 16px;
-        color: #4b5563;
+        color: #6b7280;
     }
     
     /* Utility classes */
@@ -482,11 +480,10 @@ st.markdown("""
     
     /* Streamlit element overrides */
     .stTextArea > div > div > textarea {
-        border: 1px solid #d1d5db !important;
+        border: 1px solid #e5e7eb !important;
         color: #111827 !important;
         font-size: 1rem !important;
         min-height: 150px !important;
-        background-color: white !important;
     }
     
     .stTextArea > div {
@@ -624,7 +621,7 @@ if resources:
     
     # Character counter
     if arabic_text:
-        st.markdown(f"<div style='text-align: right; color: #4b5563; font-size: 0.85rem;'>{len(arabic_text)} characters</div>", unsafe_allow_html=True)
+        st.markdown(f"<div style='text-align: right; color: #6b7280; font-size: 0.85rem;'>{len(arabic_text)} characters</div>", unsafe_allow_html=True)
 
 else:
     # Better error handling with custom styling
@@ -678,7 +675,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Footer with contributors - now with better contrast
+# Footer with contributors
 st.markdown("""
 <div class="footer">
     <div class="footer-title">Contributors</div>
@@ -698,7 +695,7 @@ st.markdown("""
 
 st.markdown('</div>', unsafe_allow_html=True)  # Close main container
 
-# Enhanced sidebar with more information and better contrast
+# Enhanced sidebar with more information
 with st.sidebar:
     st.markdown("""
     <div class="sidebar-content">
