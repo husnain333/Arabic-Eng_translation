@@ -485,11 +485,7 @@ st.markdown("""
     .stTextArea > div {
         border: none !important;
     }
-    .stTextArea > div > div > textarea::placeholder {
-        color: #4a5568 !important; /* Darker gray for placeholders */
-        opacity: 0.9 !important; /* Higher opacity for better visibility */
-        font-weight: 500 !important; /* Medium weight text */
-    }
+    
     div[data-testid="stVerticalBlock"] {
         gap: 0 !important;
     }
