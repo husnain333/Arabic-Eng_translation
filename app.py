@@ -132,7 +132,14 @@ st.markdown("""
         font-size: 20px;
     }
     
-    .card-title
+    /* UPDATED: Card title styling for better visibility */
+    .card-title {
+        color: #000000; /* Changed from #111827 to pure black for better visibility */
+        font-weight: 700; /* Increased from 600 to 700 */
+        font-size: 1.25rem;
+        margin: 0;
+        letter-spacing: 0.01em; /* Better readability */
+    }
     
     /* Language badges */
     .language-switcher {
@@ -186,7 +193,7 @@ st.markdown("""
     
     .input-header, .output-header {
         padding: 12px 16px;
-        font-weight: 500;
+        font-weight: 600; /* Increased from 500 to 600 */
         font-size: 0.95rem;
         display: flex;
         align-items: center;
@@ -194,7 +201,7 @@ st.markdown("""
     
     .input-header {
         background-color: #f3f4f6;
-        color: #111827;
+        color: #000000; /* Changed from #111827 to black */
         border: 1px solid #d1d5db;
         border-bottom: none;
     }
@@ -264,7 +271,7 @@ st.markdown("""
     
     .result-header {
         font-weight: 600;
-        color: #111827;
+        color: #000000; /* Changed to black */
         margin-bottom: 12px;
         display: flex;
         align-items: center;
@@ -311,14 +318,16 @@ st.markdown("""
         margin-bottom: 16px;
     }
     
+    /* UPDATED: Feature title for better visibility */
     .feature-title {
-        font-weight: 600;
+        font-weight: 700; /* Increased from 600 to 700 */
         margin-bottom: 8px;
-        color: #111827;
+        color: #000000; /* Changed from #111827 to black */
     }
     
+    /* UPDATED: Feature description for better visibility */
     .feature-description {
-        color: #4b5563;
+        color: #000000; /* Changed from #4b5563 to black */
         font-size: 0.95rem;
     }
     
@@ -374,7 +383,7 @@ st.markdown("""
         margin-top: 16px;
     }
     
-    /* About section */
+    /* About section - UPDATED for better visibility */
     .about-section {
         background-color: #f9fafb;
         border-radius: 12px;
@@ -383,14 +392,15 @@ st.markdown("""
     }
     
     .about-title {
-        font-weight: 600;
-        color: #111827;
+        font-weight: 700; /* Increased from 600 to 700 */
+        color: #000000; /* Changed from #111827 to black */
         margin-bottom: 16px;
         font-size: 1.25rem;
+        letter-spacing: 0.01em;
     }
     
     .about-content {
-        color: #4b5563;
+        color: #000000; /* Changed from #4b5563 to black */
         font-size: 0.95rem;
         line-height: 1.6;
     }
@@ -410,8 +420,8 @@ st.markdown("""
     }
     
     .model-info-title {
-        font-weight: 500;
-        color: #111827;
+        font-weight: 600; /* Increased from 500 to 600 */
+        color: #000000; /* Changed from #111827 to black */
         margin-bottom: 8px;
         font-size: 0.9rem;
     }
@@ -480,6 +490,13 @@ st.markdown("""
         font-size: 1rem !important;
         min-height: 150px !important;
         background-color: white !important;
+    }
+    
+    /* UPDATED: Make placeholder text darker */
+    .stTextArea > div > div > textarea::placeholder {
+        color: #000000 !important; /* Changed to black for maximum visibility */
+        opacity: 0.7 !important; /* High opacity for visibility while still looking like a placeholder */
+        font-weight: 500 !important; /* Medium weight for better visibility */
     }
     
     .stTextArea > div {
@@ -617,7 +634,7 @@ if resources:
     
     # Character counter
     if arabic_text:
-        st.markdown(f"<div style='text-align: right; color: #4b5563; font-size: 0.85rem;'>{len(arabic_text)} characters</div>", unsafe_allow_html=True)
+        st.markdown(f"<div style='text-align: right; color: #000000; font-size: 0.85rem;'>{len(arabic_text)} characters</div>", unsafe_allow_html=True)
 
 else:
     # Better error handling with custom styling
@@ -639,6 +656,35 @@ else:
 
 st.markdown('</div>', unsafe_allow_html=True)  # Close the card
 
+# About section (replacing sidebar content)
+st.markdown("""
+<div class="about-section">
+    <div class="about-title">About This Translator</div>
+    <div class="about-content">
+        <p>This translator uses a neural machine translation model based on the Transformer architecture. 
+        It processes Arabic text and generates fluent English translations by understanding the context and meaning.</p>
+        
+        <div class="model-info">
+            <div class="model-info-card">
+                <div class="model-info-title">Architecture</div>
+                <div class="model-info-value">Transformer</div>
+            </div>
+            <div class="model-info-card">
+                <div class="model-info-title">Encoder/Decoder Layers</div>
+                <div class="model-info-value">4</div>
+            </div>
+            <div class="model-info-card">
+                <div class="model-info-title">Attention Heads</div>
+                <div class="model-info-value">8</div>
+            </div>
+            <div class="model-info-card">
+                <div class="model-info-title">Model Dimension</div>
+                <div class="model-info-value">512</div>
+            </div>
+        </div>
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
 # Features section
 st.markdown("""
