@@ -19,13 +19,26 @@ def get_custom_icon():
     """
     return f"data:image/svg+xml;base64,{base64.b64encode(icon_base64.encode()).decode()}"
 
-# Page configuration with custom icon
+# Page configuration with custom icon and sidebar hidden
 st.set_page_config(
     page_title="Arabic-English Neural Translator",
     page_icon=get_custom_icon(),
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="collapsed"
 )
+
+# Hide the sidebar completely
+st.markdown("""
+<style>
+    [data-testid="collapsedControl"] {
+        display: none;
+    }
+    
+    section[data-testid="stSidebar"] {
+        display: none;
+    }
+</style>
+""", unsafe_allow_html=True)
 
 # Modern UI styling with improved color contrast
 st.markdown("""
@@ -366,67 +379,52 @@ st.markdown("""
         margin-top: 16px;
     }
     
-    /* Sidebar styling */
-    .sidebar .sidebar-content {
+    /* About section */
+    .about-section {
         background-color: #f9fafb;
-        padding: 20px;
-        border-radius: 8px;
-    }
-    
-    .sidebar-title {
-        font-weight: 600;
-        color: #111827;
-        margin-bottom: 16px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-    
-    .sidebar-section {
+        border-radius: 12px;
+        padding: 24px;
         margin-bottom: 24px;
     }
     
-    .sidebar-subtitle {
+    .about-title {
+        font-weight: 600;
+        color: #111827;
+        margin-bottom: 16px;
+        font-size: 1.25rem;
+    }
+    
+    .about-content {
+        color: #4b5563;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    .model-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        margin-top: 20px;
+    }
+    
+    .model-info-card {
+        background-color: white;
+        border-radius: 8px;
+        padding: 16px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+    
+    .model-info-title {
         font-weight: 500;
         color: #111827;
         margin-bottom: 8px;
-        font-size: 0.95rem;
-    }
-    
-    .sidebar-text {
-        color: #4b5563;
         font-size: 0.9rem;
-        line-height: 1.5;
     }
     
-    .model-specs {
-        background-color: white;
-        border: 1px solid #e5e7eb;
-        border-radius: 6px;
-        padding: 12px;
-        margin-top: 12px;
-    }
-    
-    .spec-item {
-        display: flex;
-        justify-content: space-between;
-        padding: 6px 0;
-        border-bottom: 1px solid #f3f4f6;
-    }
-    
-    .spec-item:last-child {
-        border-bottom: none;
-    }
-    
-    .spec-label {
-        color: #4b5563;
-        font-size: 0.85rem;
-    }
-    
-    .spec-value {
-        color: #111827;
-        font-weight: 500;
-        font-size: 0.85rem;
+    .model-info-value {
+        font-weight: 600;
+        color: #1a56db;
+        font-size: 1.1rem;
     }
     
     /* Loading spinner */
@@ -518,7 +516,7 @@ st.markdown("""
         </div>
     </div>
     <h1>Arabic-English Neural Translator</h1>
-    <p>Professional neural machine translation powered by advanced transformer architecture</p>
+    
 </div>
 """, unsafe_allow_html=True)
 
@@ -526,14 +524,14 @@ st.markdown("""
 st.markdown("""
 <div class="language-switcher">
     <div class="language-badge source-lang">
-        <span class="lang-icon">🇦🇪</span> Arabic
+        <span class="lang-icon"></span> Arabic
     </div>
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M5 12h14"></path>
         <path d="m12 5 7 7-7 7"></path>
     </svg>
     <div class="language-badge target-lang">
-        <span class="lang-icon">🇬🇧</span> English
+        <span class="lang-icon"></span> English
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -568,7 +566,7 @@ if resources:
     
     with col1:
         st.markdown('<div class="input-container">', unsafe_allow_html=True)
-        st.markdown('<div class="input-header">🇦🇪 Arabic Input</div>', unsafe_allow_html=True)
+        st.markdown('<div class="input-header">Arabic Input</div>', unsafe_allow_html=True)
         arabic_text = st.text_area(
             "",
             placeholder="اكتب أو الصق النص العربي هنا...", 
@@ -579,7 +577,7 @@ if resources:
     
     with col2:
         st.markdown('<div class="output-container">', unsafe_allow_html=True)
-        st.markdown('<div class="output-header">🇬🇧 English Translation</div>', unsafe_allow_html=True)
+        st.markdown('<div class="output-header">English Translation</div>', unsafe_allow_html=True)
         if 'translation' in st.session_state and st.session_state.translation:
             st.text_area(
                 "",
@@ -646,6 +644,36 @@ else:
 
 st.markdown('</div>', unsafe_allow_html=True)  # Close the card
 
+# About section (replacing sidebar content)
+st.markdown("""
+<div class="about-section">
+    <div class="about-title">About This Translator</div>
+    <div class="about-content">
+        <p>This translator uses a neural machine translation model based on the Transformer architecture. 
+        It processes Arabic text and generates fluent English translations by understanding the context and meaning.</p>
+        
+        <div class="model-info">
+            <div class="model-info-card">
+                <div class="model-info-title">Architecture</div>
+                <div class="model-info-value">Transformer</div>
+            </div>
+            <div class="model-info-card">
+                <div class="model-info-title">Encoder/Decoder Layers</div>
+                <div class="model-info-value">4</div>
+            </div>
+            <div class="model-info-card">
+                <div class="model-info-title">Attention Heads</div>
+                <div class="model-info-value">8</div>
+            </div>
+            <div class="model-info-card">
+                <div class="model-info-title">Model Dimension</div>
+                <div class="model-info-value">512</div>
+            </div>
+        </div>
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
 # Features section
 st.markdown("""
 <div class="card">
@@ -697,73 +725,3 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.markdown('</div>', unsafe_allow_html=True)  # Close main container
-
-# Enhanced sidebar with more information and better contrast
-with st.sidebar:
-    st.markdown("""
-    <div class="sidebar-content">
-        <div class="sidebar-title">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="16" x2="12" y2="12"></line>
-                <line x1="12" y1="8" x2="12.01" y2="8"></line>
-            </svg>
-            About This Translator
-        </div>
-        
-        <div class="sidebar-section">
-            <div class="sidebar-subtitle">How It Works</div>
-            <div class="sidebar-text">
-                This translator uses a neural machine translation model based on the Transformer architecture. 
-                It processes Arabic text and generates fluent English translations by understanding the context and meaning.
-            </div>
-        </div>
-        
-        <div class="sidebar-section">
-            <div class="sidebar-subtitle">Model Specifications</div>
-            <div class="model-specs">
-                <div class="spec-item">
-                    <div class="spec-label">Architecture</div>
-                    <div class="spec-value">Transformer</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-label">Encoder/Decoder Layers</div>
-                    <div class="spec-value">4</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-label">Attention Heads</div>
-                    <div class="spec-value">8</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-label">Model Dimension</div>
-                    <div class="spec-value">512</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-label">Training Data</div>
-                    <div class="spec-value">Parallel corpus</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="sidebar-section">
-            <div class="sidebar-subtitle">Usage Tips</div>
-            <div class="sidebar-text">
-                <ul style="padding-left: 20px; margin-top: 8px;">
-                    <li>For best results, use complete sentences</li>
-                    <li>The model works best with standard Arabic text</li>
-                    <li>Translations may vary for dialectal Arabic</li>
-                    <li>Technical terms may require post-editing</li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="sidebar-section">
-            <div class="sidebar-subtitle">Contact</div>
-            <div class="sidebar-text">
-                For questions, feedback, or issues, please contact the contributors via their LinkedIn profiles.
-            </div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-
-    
