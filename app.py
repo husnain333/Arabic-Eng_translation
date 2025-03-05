@@ -132,13 +132,11 @@ st.markdown("""
         font-size: 20px;
     }
     
-    /* UPDATED: Card title styling for better visibility */
     .card-title {
-        color: #000000; /* Changed from #111827 to pure black for better visibility */
-        font-weight: 700; /* Increased from 600 to 700 */
+        color: #111827;
+        font-weight: 600;
         font-size: 1.25rem;
         margin: 0;
-        letter-spacing: 0.01em; /* Better readability */
     }
     
     /* Language badges */
@@ -193,7 +191,7 @@ st.markdown("""
     
     .input-header, .output-header {
         padding: 12px 16px;
-        font-weight: 600; /* Increased from 500 to 600 */
+        font-weight: 500;
         font-size: 0.95rem;
         display: flex;
         align-items: center;
@@ -201,7 +199,7 @@ st.markdown("""
     
     .input-header {
         background-color: #f3f4f6;
-        color: #000000; /* Changed from #111827 to black */
+        color: #111827;
         border: 1px solid #d1d5db;
         border-bottom: none;
     }
@@ -271,7 +269,7 @@ st.markdown("""
     
     .result-header {
         font-weight: 600;
-        color: #000000; /* Changed to black */
+        color: #111827;
         margin-bottom: 12px;
         display: flex;
         align-items: center;
@@ -318,16 +316,14 @@ st.markdown("""
         margin-bottom: 16px;
     }
     
-    /* UPDATED: Feature title for better visibility */
     .feature-title {
-        font-weight: 700; /* Increased from 600 to 700 */
+        font-weight: 600;
         margin-bottom: 8px;
-        color: #000000; /* Changed from #111827 to black */
+        color: #111827;
     }
     
-    /* UPDATED: Feature description for better visibility */
     .feature-description {
-        color: #000000; /* Changed from #4b5563 to black */
+        color: #4b5563;
         font-size: 0.95rem;
     }
     
@@ -383,7 +379,7 @@ st.markdown("""
         margin-top: 16px;
     }
     
-    /* About section - UPDATED for better visibility */
+    /* About section */
     .about-section {
         background-color: #f9fafb;
         border-radius: 12px;
@@ -392,15 +388,14 @@ st.markdown("""
     }
     
     .about-title {
-        font-weight: 700; /* Increased from 600 to 700 */
-        color: #000000; /* Changed from #111827 to black */
+        font-weight: 600;
+        color: #111827;
         margin-bottom: 16px;
         font-size: 1.25rem;
-        letter-spacing: 0.01em;
     }
     
     .about-content {
-        color: #000000; /* Changed from #4b5563 to black */
+        color: #4b5563;
         font-size: 0.95rem;
         line-height: 1.6;
     }
@@ -420,8 +415,8 @@ st.markdown("""
     }
     
     .model-info-title {
-        font-weight: 600; /* Increased from 500 to 600 */
-        color: #000000; /* Changed from #111827 to black */
+        font-weight: 500;
+        color: #111827;
         margin-bottom: 8px;
         font-size: 0.9rem;
     }
@@ -492,13 +487,6 @@ st.markdown("""
         background-color: white !important;
     }
     
-    /* UPDATED: Make placeholder text darker */
-    .stTextArea > div > div > textarea::placeholder {
-        color: #000000 !important; /* Changed to black for maximum visibility */
-        opacity: 0.7 !important; /* High opacity for visibility while still looking like a placeholder */
-        font-weight: 500 !important; /* Medium weight for better visibility */
-    }
-    
     .stTextArea > div {
         border: none !important;
     }
@@ -528,7 +516,7 @@ st.markdown("""
         </div>
     </div>
     <h1>Arabic-English Neural Translator</h1>
-    
+    <p>Professional neural machine translation powered by advanced transformer architecture</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -536,14 +524,14 @@ st.markdown("""
 st.markdown("""
 <div class="language-switcher">
     <div class="language-badge source-lang">
-        <span class="lang-icon"></span> Arabic
+        <span class="lang-icon">🇦🇪</span> Arabic
     </div>
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M5 12h14"></path>
         <path d="m12 5 7 7-7 7"></path>
     </svg>
     <div class="language-badge target-lang">
-        <span class="lang-icon"></span> English
+        <span class="lang-icon">🇬🇧</span> English
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -578,7 +566,7 @@ if resources:
     
     with col1:
         st.markdown('<div class="input-container">', unsafe_allow_html=True)
-        st.markdown('<div class="input-header">Arabic Input</div>', unsafe_allow_html=True)
+        st.markdown('<div class="input-header">🇦🇪 Arabic Input</div>', unsafe_allow_html=True)
         arabic_text = st.text_area(
             "",
             placeholder="اكتب أو الصق النص العربي هنا...", 
@@ -589,7 +577,7 @@ if resources:
     
     with col2:
         st.markdown('<div class="output-container">', unsafe_allow_html=True)
-        st.markdown('<div class="output-header">English Translation</div>', unsafe_allow_html=True)
+        st.markdown('<div class="output-header">🇬🇧 English Translation</div>', unsafe_allow_html=True)
         if 'translation' in st.session_state and st.session_state.translation:
             st.text_area(
                 "",
@@ -634,7 +622,7 @@ if resources:
     
     # Character counter
     if arabic_text:
-        st.markdown(f"<div style='text-align: right; color: #000000; font-size: 0.85rem;'>{len(arabic_text)} characters</div>", unsafe_allow_html=True)
+        st.markdown(f"<div style='text-align: right; color: #4b5563; font-size: 0.85rem;'>{len(arabic_text)} characters</div>", unsafe_allow_html=True)
 
 else:
     # Better error handling with custom styling
