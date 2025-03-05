@@ -677,7 +677,7 @@ st.markdown("""
 
 # Footer with contributors
 st.markdown("""
-<div class="footer">
+<div class="footer" style="background-color: #000000;">
     <div class="footer-title">Contributors</div>
     <div class="contributors">
         <div class="contributor">
